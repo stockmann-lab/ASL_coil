@@ -27,8 +27,8 @@ def generate_neck_coils(filepath):
                 (0, -1, 0),
                 (1, 0, 0),
                 (0, 0, 1)]
-    radii = [30, 30, 30, 30, 30, 12, 70] # TODO
-    segment_numbers = [13, 13, 13, 13, 13, 9, 25] # TODO
+    radii = [30, 30, 30, 30, 30, 12, 70]
+    segment_numbers = [13, 13, 13, 13, 13, 9, 25]
     fov_min_idx = np.array((25, 25, 0))
     fov_max_idx = np.array((100, 95, 10))
     fov_n = fov_max_idx - fov_min_idx + 1

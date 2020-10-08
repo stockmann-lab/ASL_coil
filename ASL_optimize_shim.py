@@ -10,16 +10,16 @@ import scipy.io as sio
 from compare_shim import compare_shim
 from biot_savart_neck import generate_neck_coils
 
-if not os.path.exists('coils/head_coils.npy'):
-    head_coils = sio.loadmat('coil_maps.mat')['coil_maps']
+if not os.path.exists('data/head_coils.npy'):
+    head_coils = sio.loadmat('data/head_coils.mat')['head_coils']
     np.save('coils/head_coils.npy', head_coils)
 if not os.path.exists('coils/neck_coils.npy'):
     generate_neck_coils('coils/neck_coils.npy')
 if not os.path.exists('maps/magnitude.npy'):
-    mag = sio.loadmat('subject1_mag.mat')['subject1_mag'].astype('float')
+    mag = sio.loadmat('data/mag_1.mat')['mag_1'].astype('float')
     np.save('maps/magnitude.npy', mag)
 if not os.path.exists('maps/unshimmed.npy'):
-    unshimmed = sio.loadmat('subject1_fm.mat')['subject1_fm']
+    unshimmed = sio.loadmat('data/unshimmed_1.mat')['unshimmed_1']
     np.save('maps/unshimmed.npy', unshimmed)
 
 m_x, m_y, m_z = mask_origin = (52, 40, 0)
