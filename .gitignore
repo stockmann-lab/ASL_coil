@@ -3,3 +3,5 @@ __pycache__/
 data/*
 LOCAL/
 .DS_Store
+coils/
+data/
