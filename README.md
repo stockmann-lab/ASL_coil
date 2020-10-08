@@ -6,7 +6,9 @@ Install shimmingtoolbox package:
 ```
 $ pip install shimmingtoolbox@git+https://github.com/shimming-toolbox/shimming-toolbox
 ```
-or see [the repository here](https://github.com/shimming-toolbox/shimming-toolbox). 
+or see [the repository here](https://github.com/shimming-toolbox/shimming-toolbox).
+
+Move all data folders directly into the repository, if not there. 
 
 # Usage
-Run `ASL_optimize_shim.py`. To update neck coil generation, `change biot_savart_neck.py`, and delete or move the existing neck coil file. To change plotting, modify `compare_shim.py`.
+Run `ASL_optimize_shim.py`. To update neck coil generation, change `biot_savart_neck.py`, and delete or move the existing neck coil file. To change plotting, modify `compare_shim.py`. Modify `ASL_optimize_shim.py` to change what coils and subjects are used. 
