@@ -4,7 +4,7 @@
 import numpy as np
 import os
 
-from shimmingtoolbox.coils.biot_savart import biot_savart
+from coils.biot_savart import biot_savart
 
 def generate_neck_coils(filepath):
 
@@ -21,9 +21,9 @@ def generate_neck_coils(filepath):
                         [104, 60, 0],
                         [69, 60, -2]]) * scale
     normals = [ (0, 1, 0),
-                (1, 1, 0),
-                (1, 0, 0),
                 (1, -1, 0),
+                (1, 0, 0),
+                (1, 1, 0),
                 (0, -1, 0),
                 (1, 0, 0),
                 (0, 0, 1)]

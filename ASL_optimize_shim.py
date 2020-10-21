@@ -14,6 +14,7 @@ if not os.path.exists('data/head_coils.npy'):
     head_coils = sio.loadmat('data/head_coils.mat')['head_coils']
     np.save('coils/head_coils.npy', head_coils)
 if not os.path.exists('coils/neck_coils.npy'):
+    print('Generating neck coils...')
     generate_neck_coils('coils/neck_coils.npy')
 if not os.path.exists('maps/magnitude.npy'):
     mag = sio.loadmat('data/mag_1.mat')['mag_1'].astype('float')
