@@ -4,9 +4,7 @@ import sys
 import numpy as np
 import scipy.io as sio
 
-def save_to_mat():
-    mask_folder = 'LOCAL/artery_masks'
-    out_file = 'LOCAL/artery_masks/mask.mat'
+def save_to_mat(mask_folder, out_file):
     mask = 0
 
     i = 0
@@ -26,4 +24,6 @@ def save_to_mat():
     sio.savemat(out_file, {'mask' : mask})
 
 if __name__ == '__main__':
-    save_to_mat()
+    mask_folder = 'LOCAL/artery_masks'
+    out_file = 'LOCAL/artery_masks/mask.mat'
+    save_to_mat(mask_folder, out_file)

@@ -17,8 +17,11 @@ autosave = True
 matfile = 'data/tof.mat'
 mat_varname = 'tof'
 
+# Mat out file (only useful if autosave is true):
+out_file = 'LOCAL/artery_masks/mask.mat'
+
 # Output path:
-out_folder = 'LOCAL/artery_masks'
+mask_folder = 'LOCAL/artery_masks'
 
 # Arteries to select before stopping:
 artery_count = 4
@@ -115,9 +118,9 @@ for _ in range(artery_count):
         path_label = 'dont_want'
 
     i = 0
-    while os.path.exists(f"{out_folder}/{path_label}_{i}.npy"):
+    while os.path.exists(f"{mask_folder}/{path_label}_{i}.npy"):
         i += 1
-    np.save(f"{out_folder}/{path_label}_{i}.npy", mask)
+    np.save(f"{mask_folder}/{path_label}_{i}.npy", mask)
 
 if autosave:
-    save_masks_to_mat.save_to_mat()
+    save_masks_to_mat.save_to_mat(mask_folder, out_file)
