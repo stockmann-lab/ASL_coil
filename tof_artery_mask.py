@@ -92,7 +92,7 @@ for _ in range(artery_count):
         local = mag[xyz[0] - de: xyz[0] + de, xyz[1] - de: xyz[1] + de, 0:1]
         edit = np.argwhere(local == local.max())[0, :] - np.array([de, de, 0])
         xyz = (np.array(xyz) + edit).tolist()
-        artery = am.bfs_boundary(mag, xyz, threshold=0.5, dxyz_max=[delta_x, delta_y, delta_z], from_neighbor=False, from_average=True)
+        artery = am.bfs_boundary(mag, xyz, threshold=0.5, dxyz_max=[delta_x, delta_y, delta_z], from_neighbor=False, from_average=False)
         mask = am.thicken(artery, thicken_x, thicken_y, thicken_z)
 
         mask_vis = np.where(mask, np.nan, mag)
