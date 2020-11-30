@@ -10,6 +10,9 @@ import slice_plotter as slp
 
 import save_masks_to_mat
 
+# Clear mask_folder on start
+clear_folder = True
+
 # Automatically save without editing any files
 autosave = True
 
@@ -63,6 +66,11 @@ def mask_link(want, reselect):
             return
         plt.close()
     return decide_mask
+
+if clear_folder:
+    for filename in os.listdir(mask_folder):
+        if filename.endswith(".npy") or filename.endswith(".mat"):
+            os.remove(filename)
 
 for _ in range(artery_count):
     reselect = [True]
