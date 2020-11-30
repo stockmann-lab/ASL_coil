@@ -11,7 +11,7 @@ import slice_plotter as slp
 import save_masks_to_mat
 
 # Automatically save without editing any files
-autsave = True
+autosave = True
 
 # Mat file where TOF is saved:
 matfile = 'data/tof.mat'
@@ -120,4 +120,4 @@ for _ in range(artery_count):
     np.save(f"{out_folder}/{path_label}_{i}.npy", mask)
 
 if autosave:
-    save_masks_to_mat()
+    save_masks_to_mat.save_to_mat()
