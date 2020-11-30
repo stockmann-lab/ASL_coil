@@ -8,6 +8,11 @@ import scipy.io as sio
 import artery_map as am
 import slice_plotter as slp
 
+import save_masks_to_mat
+
+# Automatically save without editing any files
+autsave = True
+
 # Mat file where TOF is saved:
 matfile = 'data/tof.mat'
 mat_varname = 'tof'
@@ -113,3 +118,6 @@ for _ in range(artery_count):
     while os.path.exists(f"{out_folder}/{path_label}_{i}.npy"):
         i += 1
     np.save(f"{out_folder}/{path_label}_{i}.npy", mask)
+
+if autosave:
+    save_masks_to_mat()
