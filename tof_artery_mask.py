@@ -89,7 +89,7 @@ for _ in range(artery_count):
         continuity_index = plotter.ind
 
         de = delta_select
-        local = mag[xyz[0] - de: xyz[0] + de, xyz[1] - de: xyz[1] + de, 0:1]
+        local = mag[xyz[0] - de: xyz[0] + de, xyz[1] - de: xyz[1] + de, xyz[2]:xyz[2]+1]
         edit = np.argwhere(local == local.max())[0, :] - np.array([de, de, 0])
         xyz = (np.array(xyz) + edit).tolist()
         artery = am.bfs_boundary(mag, xyz, threshold=0.5, dxyz_max=[delta_x, delta_y, delta_z], from_neighbor=False, from_average=False)
