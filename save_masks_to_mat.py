@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import scipy.io as sio
 
-def save_to_mat(mask_folder, out_file):
+def save_to_mat(mask_folder, out_file, z_0=-1, dz=-1):
     mask = 0
 
     i = 0
@@ -20,6 +20,10 @@ def save_to_mat(mask_folder, out_file):
         print(f"Loaded {mask_folder}/dont_want_{i}.npy")
         mask = np.where(temp != 0, temp, mask)
         i += 1
+
+    if z_0 >= 0 and dz >= 0:
+        mask[:, :, :max(0, z_0 - dz)] = 0
+        mask[:, :, min(mask.shape[2], z_0 + dz):] = 0
 
     sio.savemat(out_file, {'mask' : mask})
 

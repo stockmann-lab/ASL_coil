@@ -38,9 +38,11 @@ thicken_z = 0
 threshold = 0.5
 
 # Maximum range of propagation
+final_delta_z = 7
+
 delta_x = -1
 delta_y = -1
-delta_z = 15
+delta_z = 20
 
 # Click radius for finding local maximum
 delta_select = 8
@@ -70,7 +72,10 @@ def mask_link(want, reselect):
 if clear_folder:
     for filename in os.listdir(mask_folder):
         if filename.endswith(".npy") or filename.endswith(".mat"):
-            os.remove(filename)
+            os.remove(f'{mask_folder}/{filename}')
+
+z_0 = -1
+
 
 for _ in range(artery_count):
     reselect = [True]
@@ -95,6 +100,9 @@ for _ in range(artery_count):
         plt.show()
         plt.close()
         continuity_index = plotter.ind
+
+        if z_0 != -1:
+            z_0 = xyz[2]
 
         de = delta_select
         local = mag[xyz[0] - de: xyz[0] + de, xyz[1] - de: xyz[1] + de, xyz[2]:xyz[2]+1]
@@ -131,4 +139,4 @@ for _ in range(artery_count):
     np.save(f"{mask_folder}/{path_label}_{i}.npy", mask)
 
 if autosave:
-    save_masks_to_mat.save_to_mat(mask_folder, out_file)
+    save_masks_to_mat.save_to_mat(mask_folder, out_file, z_0, final_delta_z)
