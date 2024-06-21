@@ -37,13 +37,11 @@ class Slice_Plotter:
             self.ind = ind_max - 1
         if self.ind < 0:
             self.ind = 0
-        self.ax.patches = []
         self.update()
 
     def update(self):
         self.im.set_data(self.X[:, :, self.ind])
         self.ax.set_ylabel('slice %s (scroll)' % self.ind)
-        self.ax.patches = []
         for patch in self.patches[self.ind]:
             self.ax.add_patch(patch)
         self.im.axes.figure.canvas.draw()

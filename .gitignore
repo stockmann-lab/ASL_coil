@@ -6,3 +6,5 @@ LOCAL/
 coils/
 data/
 maps/
+mat/*
+npy/*
