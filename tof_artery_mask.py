@@ -137,6 +137,7 @@ for _ in range(artery_count):
     while os.path.exists(f"{mask_folder}/{path_label}_{i}.npy"):
         i += 1
     np.save(f"{mask_folder}/{path_label}_{i}.npy", mask)
+    np.save(f"{mask_folder}/{path_label}_{i}_start_voxel.npy", xyz)
 
 if autosave:
     save_masks_to_mat.save_to_mat(mask_folder, out_file)
